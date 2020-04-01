@@ -1,0 +1,9 @@
+<%= form_with model: @post, class: "form", local: true do |f| %>
+  <div class="form-body">
+    <% @post.errors.full_messages.each do |message| %>
+      <p class="errors"><%= message %></p>
+    <% end %>
+    <%= f.text_area :content, rows: 10, class: "content-area" %>
+    <%= f.submit "SEND", class: "submit-btn" %>
+  </div>
+<% end %>

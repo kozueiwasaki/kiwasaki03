@@ -1,0 +1,18 @@
+.top-main{
+  background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), image-url('/top.jpg');
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  .top-message{
+    margin: 0 auto;
+    color: $white;
+    text-align: center;
+    h2{
+      font-size: 70px;
+      margin-bottom: 20px;
+    }
+    p{
+      font-size: 20px;
+    }
+  }
+}

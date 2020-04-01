@@ -1,0 +1,22 @@
+.posts-show-item{
+  padding: 30px;
+  background-color: $white;
+  p{
+    font-size: 24px;
+    color: $dark-color;
+    margin: 20px 0;
+  }
+  .post-time{
+    color: $gray;
+    margin-bottom: 10px;
+  }
+  .post-menus{
+    text-align: right;
+    a{
+      color: $gray;
+      &:hover{
+        color: $dark-color;
+      }
+    }
+  }
+}

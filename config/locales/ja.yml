@@ -1,0 +1,25 @@
+ja:
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+      short: "%m/%d %H:%M"
+  activerecord:
+    errors:
+      models:
+        post:
+          attributes:
+            content: 
+              blank: "を入力してください"
+              too_long: "は１４０字以内で入力してください"
+        user: 
+          attributes:
+            name: 
+              taken: "がすでに使われています"
+            email:
+              taken: "がすでに使われています"
+    attributes:
+      post:
+        content: "本文"
+      user:
+        name: "ニックネーム"
+        email: "メールアドレス"

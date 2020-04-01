@@ -1,0 +1,42 @@
+.header{
+  height: 64px;
+  width: 100%;
+  background-color: $dark-color;
+  font-size: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  .header-logo{
+    margin-left: 20px;
+    a{
+      color: $lightGray;
+      text-decoration: none;
+      &:hover{
+        opacity: 0.7;
+      }
+    }
+  }
+  .header-menus{
+    margin-right: 20px;
+    display: flex;
+    li{
+      font-size: 13px;
+      margin-left: 10px;
+      a{
+        color: $lightGray;
+        text-decoration: none;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+.notification{
+  background-color: $accent-color;
+  color: $white;
+  padding-top: 64px;
+  text-align: center;
+}

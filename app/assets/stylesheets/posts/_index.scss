@@ -1,0 +1,34 @@
+.posts-index{
+  .container{
+    .posts-index-item{
+      padding: 20px 30px;
+      background-color: $white;
+      &:not(:last-of-type){
+        border-bottom: dotted 2px $lightGray;
+      }
+      .posts-content{
+        font-size: 18px;
+        color: $dark-color;
+        text-decoration: none;
+        &:hover{
+          opacity: 0.7;
+        }
+      }
+      .posts-date{
+        font-size: 12px;
+        color: $gray;
+        margin-top: 5px;
+      }
+    }
+    .pagination{
+      margin-top: 15px;
+      text-align: right;
+      span{
+        color: $gray;
+        a{
+          color: $gray;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+  font-family: 'メイリオ',
+	'Hiragino Kaku Gothic Pro',
+	sans-serif;
+}
+
+.main{
+  padding-top: 64px;
+  width: 100%;
+  height: 100vh;
+  background-color: $lightGray;
+  .container{
+    max-width: 600px;
+    margin: 60px auto;
+  }
+}
