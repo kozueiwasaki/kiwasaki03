@@ -10,7 +10,8 @@
         <%= f.text_field :name, placeholder: "nickname" %>
         <p>メールアドレス</p>
         <%= f.text_field :email, placeholder: "email" %>
-        <%= f.submit "signup" %>
+        <%= f.file_field :image_name %>
+        <%= f.submit "保存" %>
       </div>
     <% end %>
   </div>

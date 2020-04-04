@@ -5,6 +5,9 @@
       <div class="users-index-item">
         <div class="user-right">
           <%= link_to user.name, user_path(user.id) %>
+          <% if user.image_name %>
+            <img src="<%= "/user_images/#{user.image_name}" %>">
+          <% end %>
         </div>
       </div>
     <% end %>

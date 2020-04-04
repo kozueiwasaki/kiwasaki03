@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.image_name = "/public/user_images/user_default.png"
     if @user.save
       flash[:notice] = "登録が完了しました"
       redirect_to user_path(@user.id)
@@ -27,7 +28,17 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by(id: params[:id])
-    if @user.update(user_params)
+    @user.update(user_params)
+    #　画像データが送信されたときだけ実行
+    if user_params[:image_name]
+      # 画像のファイル名をDBに保存
+      @user.image_name = "#{@user.id}.jpg"
+      # 画像ファイルの情報をうけとる
+      image = user_params[:image_name]
+      # public/user_images配下にファイルを保存
+      File.binwrite("public/user_images/#{@user.image_name}", image.read)
+    end
+    if @user.save
       flash[:notice] = "ユーザー情報を編集しました"
       redirect_to user_path(@user.id)
     else
@@ -38,7 +49,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name, :email, :image_name)
   end
 
 end
