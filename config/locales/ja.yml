@@ -14,8 +14,10 @@ ja:
         user: 
           attributes:
             name: 
+              blank: "を入力してください"
               taken: "がすでに使われています"
             email:
+              blank: "を入力してください"
               taken: "がすでに使われています"
     attributes:
       post:

@@ -1,17 +1,18 @@
 <div class="main users-edit">
   <div class="container">
-    <h1 class="form-heading">ユーザー情報の編集</h1>
-    <%= form_with model: @user, local: true do |f| %>
-      <div class="form-body">
+    <h1 class="heading">ユーザー情報の編集</h1>
+    <%= form_with model: @user, class: "users-form", local: true do |f| %>
+      <div class="users-form__body">
         <% @user.errors.full_messages.each do |message| %>
         <p class="errors"><%= message %></p>
         <% end %>
-        <p>ニックネーム</p>
-        <%= f.text_field :name, placeholder: "nickname" %>
-        <p>メールアドレス</p>
-        <%= f.text_field :email, placeholder: "email" %>
-        <%= f.file_field :image_name %>
-        <%= f.submit "保存" %>
+        <p class="users-form__body--title">ニックネーム</p>
+        <%= f.text_field :name, class: "users-form__body--field", placeholder: "nickname" %>
+        <p class="users-form__body--title">メールアドレス</p>
+        <%= f.text_field :email, class: "users-form__body--field", placeholder: "email" %>
+        <%= f.label :image_name, "ファイルを選択", class:"users-form__body--label" %>
+        <%= f.file_field :image_name, class: "users-form__body--file" %>
+        <%= f.submit "保存", class:"users-form__body--btn" %>
       </div>
     <% end %>
   </div>

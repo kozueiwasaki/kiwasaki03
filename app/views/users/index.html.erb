@@ -1,15 +1,16 @@
 <div class="main users-index">
   <div class="container">
-    <h1 class="users-heading">ユーザー一覧</h1>
+    <h1 class="heading">ユーザー一覧</h1>
     <% @users.each do |user| %>
-      <div class="users-index-item">
-        <div class="user-right">
-          <%= link_to user.name, user_path(user.id) %>
-          <% if user.image_name %>
-            <img src="<%= "/user_images/#{user.image_name}" %>">
-          <% end %>
+      <div class="users-index__item">
+        <% if user.image_name %>
+          <%= image_tag "/user_images/#{user.image_name}", size: '100x80', class: "users-index__item--image" %>
+        <% end %>
+        <div class="users-index__item--box">
+          <%= link_to user.name, user_path(user.id), class: "users-index__item--box--name" %>
         </div>
       </div>
     <% end %>
+    <%= paginate(@users) %>
   </div>
 </div>

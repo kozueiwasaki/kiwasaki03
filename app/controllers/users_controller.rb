@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.all.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def new
@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    # 初期画像を設定
     @user.image_name = "/public/user_images/user_default.png"
     if @user.save
       flash[:notice] = "登録が完了しました"

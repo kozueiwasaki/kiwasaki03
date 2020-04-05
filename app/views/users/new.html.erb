@@ -1,16 +1,16 @@
 <div class="main users-new">
   <div class="container">
-    <h1 class="form-heading">新規ユーザー登録</h1>
-    <%= form_with model: @user, local: true do |f| %>
-      <div class="form-body">
+    <h1 class="heading">新規ユーザー登録</h1>
+    <%= form_with model: @user, class: "users-form", local: true do |f| %>
+      <div class="users-form__body">
         <% @user.errors.full_messages.each do |message| %>
         <p class="errors"><%= message %></p>
         <% end %>
-        <p>ニックネーム</p>
-        <%= f.text_field :name, placeholder: "nickname" %>
-        <p>メールアドレス</p>
-        <%= f.text_field :email, placeholder: "email" %>
-        <%= f.submit "signup" %>
+        <p class="users-form__body--title">ニックネーム</p>
+        <%= f.text_field :name, class: "users-form__body--field", placeholder: "nickname" %>
+        <p class="users-form__body--title">メールアドレス</p>
+        <%= f.text_field :email, class: "users-form__body--field", placeholder: "email" %>
+        <%= f.submit "signup", class: "users-form__body--btn" %>
       </div>
     <% end %>
   </div>
