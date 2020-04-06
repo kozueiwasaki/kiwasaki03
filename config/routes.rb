@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :create, :edit, :update] do
     collection do
       get "signup" => "users#new"
+      get "login" => "users#login_form"
+      post "login" => "users#login"
+      post "logout" => "users#logout"
     end
   end
   # post "users/create" => "users#create"

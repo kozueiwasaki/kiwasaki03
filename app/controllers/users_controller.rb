@@ -1,4 +1,11 @@
 class UsersController < ApplicationController
+  # ログインしていないユーザのアクセスを防ぐ
+  before_action :authenticate_user, only: [:index, :show, :edit, :update]
+  # すでにログインしているユーザのアクセスを防ぐ
+  before_action :forbid_login_user, only: [:new, :create, :login_form, :login]
+  # ログイン中のユーザと操作中のユーザが同一でないとき
+  before_action :ensure_correct_user, only: [:edit, :update]
+
   def index
     @users = User.all.order(created_at: :desc).page(params[:page]).per(5)
   end
@@ -10,8 +17,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     # 初期画像を設定
-    @user.image_name = "/public/user_images/user_default.png"
+    @user.image_name = "user_default.png"
     if @user.save
+      session[:username] = @user.name
       flash[:notice] = "登録が完了しました"
       redirect_to user_path(@user.id)
     else
@@ -25,6 +33,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find_by(id: params[:id])
+    binding.pry
   end
 
   def update
@@ -47,10 +56,41 @@ class UsersController < ApplicationController
     end
   end
 
+  def login_form
+    
+  end
+
+  def login
+    @user = User.find_by(email: params[:email], password: params[:password])
+    if @user
+      session[:user_id] = @user.id
+      flash[:notice] = "ログインしました"
+      redirect_to root_path
+    else
+      @error_message = "メールアドレスまたはパスワードが間違っています"
+      @email = user_params[:email]
+      @password = user_params[:password]
+      render :login_form
+    end
+  end
+
+  def logout
+    session[:user_id] = nil
+    flash[:notice] = "ログアウトしました"
+    redirect_to login_users_path
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :image_name)
+    params.require(:user).permit(:name, :email, :image_name, :password)
+  end
+
+  def ensure_correct_user
+    if @current_user.id != params[:id]
+      flash[:notice] = "権限がありません"
+      redirect_to root_path
+    end
   end
 
 end

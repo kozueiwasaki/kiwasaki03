@@ -19,9 +19,12 @@ ja:
             email:
               blank: "を入力してください"
               taken: "がすでに使われています"
+            password:
+              blank: "を入力してください"
     attributes:
       post:
         content: "本文"
       user:
         name: "ニックネーム"
         email: "メールアドレス"
+        password: "パスワード"

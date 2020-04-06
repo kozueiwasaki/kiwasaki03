@@ -1,0 +1,19 @@
+<div class="main users-new">
+  <div class="container">
+    <h1 class="heading">ログイン</h1>
+    <%= form_with model: @user, class: "users-form", local: true do |f| %>
+      <% if @error_message %>
+        <div class="errors">
+          <%= @error_message %>
+        </div>
+      <% end %>
+      <div class="users-form__body"> 
+        <p class="users-form__body--title">メールアドレス</p>
+        <%= f.text_field :email, class: "users-form__body--field", placeholder: "email", value: @email %>
+        <p class="users-form__body--title">パスワード</p>
+        <%= f.password_field :password, class: "users-form__body--field", placeholder: "password", value: @password %>
+        <%= f.submit "login", class: "users-form__body--btn" %>
+      </div>
+    <% end %>
+  </div>
+</div>
