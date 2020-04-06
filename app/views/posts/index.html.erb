@@ -4,6 +4,7 @@
     <div class="posts-index-list">
       <% @posts.each do |post| %>
         <div class="posts-index-item">
+          <>
           <%= link_to post.content, "/posts/#{post.id}", class: "posts-content" %>
           <p class="posts-date"><%= l post.created_at, format: :short %></p>
         </div>

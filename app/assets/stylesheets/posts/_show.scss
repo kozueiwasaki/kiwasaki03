@@ -1,16 +1,32 @@
-.posts-show-item{
+.post-item{
   padding: 30px;
   background-color: $white;
-  p{
+  &__user{
+    display: flex;
+    align-items: center;
+    &--image{
+      border-radius: 50%;
+    }
+    &--name{
+      color: $dark-color;
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-decoration: none;
+      margin-left: 5px;
+      vertical-align: middle;
+    }
+  }
+  &__content{
     font-size: 24px;
     color: $dark-color;
     margin: 20px 0;
   }
-  .post-time{
+  &__time{
     color: $gray;
     margin-bottom: 10px;
   }
-  .post-menus{
+  &__menus{
     text-align: right;
     a{
       color: $gray;

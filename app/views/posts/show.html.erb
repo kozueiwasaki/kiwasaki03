@@ -1,11 +1,15 @@
 <div class="main posts-show">
   <div class="container">
-    <div class="posts-show-item">
-      <p><%= @post.content %></p>
-      <div class="post-time">
+    <div class="post-item">
+      <div class="post-item__user">
+        <%= image_tag "/user_images/#{@user.image_name}", size: "120x100", class: "post-item__user--image" %>
+        <%= link_to @user.name, user_path(@user.id) , class: "post-item__user--name" %>
+      </div>
+      <p class="post-item__content"><%= @post.content %></p>
+      <div class="post-item__time">
         <%= l @post.created_at %>
       </div>
-      <div class="post-menus">
+      <div class="post-item__menus">
         <%= link_to "編集", edit_post_path(@post.id) %>
         <%= link_to "削除", post_path(@post.id), method: :delete %>
       </div>
