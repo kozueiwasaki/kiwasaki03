@@ -33,7 +33,6 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find_by(id: params[:id])
-    binding.pry
   end
 
   def update
@@ -87,7 +86,7 @@ class UsersController < ApplicationController
   end
 
   def ensure_correct_user
-    if @current_user.id != params[:id]
+    if @current_user.id != params[:id].to_i
       flash[:notice] = "権限がありません"
       redirect_to root_path
     end
