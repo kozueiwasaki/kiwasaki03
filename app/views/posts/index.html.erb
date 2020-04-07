@@ -1,12 +1,17 @@
 <div class="main posts-index">
   <div class="container">
     <h1 class="heading">投稿一覧</h1>
-    <div class="posts-index-list">
+    <div class="posts">
       <% @posts.each do |post| %>
-        <div class="posts-index-item">
-          <>
-          <%= link_to post.content, "/posts/#{post.id}", class: "posts-content" %>
-          <p class="posts-date"><%= l post.created_at, format: :short %></p>
+        <div class="post-item-index">
+            <%= image_tag "/user_images/#{post.user.image_name}", size: "100x100" , class: "post-item-index__image"%>
+            <div class="post-item-index__text">
+              <p class="post-item-index__text--username"><%= post.user.name %></p>
+              <%= link_to post.content, "/posts/#{post.id}", class: "post-item-index__text--content" %>
+              <div class="post-item-index__text--date">
+                <p><%= l post.created_at, format: :short %></p>
+              </div>
+            </div>
         </div>
       <% end %>
       <%= paginate(@posts) %>

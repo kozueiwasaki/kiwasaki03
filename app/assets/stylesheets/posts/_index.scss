@@ -1,20 +1,32 @@
-.posts-index{
-  .container{
-    .posts-index-item{
-      padding: 20px 30px;
-      background-color: $white;
-      &:not(:last-of-type){
-        border-bottom: dotted 2px $lightGray;
+.post-item-index{
+  padding: 20px 30px 15px;
+  background-color: $white;
+  display: flex;
+  &:not(:last-of-type){
+    border-bottom: dotted 2px $lightGray;
+  }
+  &__image{
+    margin-right: 20px;
+    border-radius: 50px;
+  }
+  &__text{
+    width: 100%;
+    &--username{
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    &--content{
+      font-size: 18px;
+      color: $dark-color;
+      text-decoration: none;
+      &:hover{
+        opacity: 0.7;
       }
-      .posts-content{
-        font-size: 18px;
-        color: $dark-color;
-        text-decoration: none;
-        &:hover{
-          opacity: 0.7;
-        }
-      }
-      .posts-date{
+    }
+    &--date{
+      text-align: right;
+      p{
         font-size: 12px;
         color: $gray;
         margin-top: 5px;

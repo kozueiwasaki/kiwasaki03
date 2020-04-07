@@ -1,7 +1,7 @@
 <div class="main user-show">
   <div class="container">
     <div class="user-info">
-      <%= image_tag "/user_images/#{@user.image_name}", size: "220x200", class: "user-info__image" %>
+      <%= image_tag "/user_images/#{@user.image_name}", size: "200x200", class: "user-info__image" %>
       <h2 class="user-info__name"><%= @user.name %></h2>
       <p class="user-info__email"><%= @user.email %></p>
       <% if @user.id == @current_user.id %>
