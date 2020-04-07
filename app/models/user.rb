@@ -1,5 +1,5 @@
 class User < ApplicationRecord
   validates :name, :email, :password, presence: true
   validates :name, :email, uniqueness: true
-  has_many :comments
+  has_many :posts
 end

@@ -8,5 +8,16 @@
         <%= link_to "編集", edit_user_path(@user.id), class: "user-info__edit" %>
       <% end %>
     </div>
+    <% @posts.each do |post| %>
+      <div class="post-item-index">
+        <div class="post-item-index__text">
+          <%= link_to post.content, "/posts/#{post.id}", class: "post-item-index__text--content" %>
+          <div class="post-item-index__text--date">
+            <p><%= l post.created_at, format: :short %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <%= paginate(@posts) %>
   </div>
 </div>

@@ -29,6 +29,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    @posts = @user.posts.page(params[:page]).per(5).order("created_at DESC")
   end
 
   def edit
@@ -76,7 +77,7 @@ class UsersController < ApplicationController
   def logout
     session[:user_id] = nil
     flash[:notice] = "ログアウトしました"
-    redirect_to login_users_path
+    redirect_to root_path
   end
 
   private
