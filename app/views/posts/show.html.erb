@@ -9,6 +9,11 @@
       <div class="post-item__time">
         <%= l @post.created_at %>
       </div>
+      <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+        いいね！済み
+      <% else %>
+        いいね！していません
+      <% end %>
       <% if @current_user.id == @post.user_id%>
         <div class="post-item__menus">
           <%= link_to "編集", edit_post_path(@post.id) %>
