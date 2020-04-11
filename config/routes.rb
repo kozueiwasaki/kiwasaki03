@@ -11,5 +11,6 @@ Rails.application.routes.draw do
       post "logout" => "users#logout"
     end
   end
+  # paramsの値がparams[:post_id]に格納されるように設定
   post "likes/:post_id/create" => "likes#create"
 end

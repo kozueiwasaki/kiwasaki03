@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by(id: params[:id])
     @user.update(user_params)
-    #　画像データが送信されたときだけ実行
+    # 画像データが送信されたときだけ実行
     if user_params[:image_name]
       # 画像のファイル名をDBに保存
       @user.image_name = "#{@user.id}.jpg"
