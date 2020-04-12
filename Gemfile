@@ -64,3 +64,4 @@ gem 'rename'
 gem 'kaminari'
 gem 'pry-rails'
 gem 'font-awesome-sass', '~> 5.4.1'
+gem "jquery-rails"

@@ -22,3 +22,30 @@
     }
   }
 }
+.menu{
+  font-size: 0;
+  li{
+    display: inline;
+    .menu-item{
+      display: inline-block;
+      width: 300px;
+      font-size: 16px;
+      color: $white;
+      background-color: $gray;
+      text-decoration: none;
+      text-align: center;
+      padding: 10px;
+    }
+    .active{
+      background-color: $dark-color;
+    }
+  }
+}
+.contents{
+  .content{
+    display: none;
+  }
+  .show{
+    display: block;
+  }
+}
