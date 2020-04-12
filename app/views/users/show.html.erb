@@ -8,20 +8,37 @@
         <%= link_to "編集", edit_user_path(@user.id), class: "user-info__edit" %>
       <% end %>
     </div>
-    <ul class="user-tabs">
-      <li class="active"><%= link_to "投稿", user_path(@user.id) %></li>
-      <li><%= link_to "いいね!", likes_user_path(@user.id) %></li>
+    <ul class="menu">
+      <li><a href="#" class="menu-item active">投稿</a></li>
+      <li><a href="#" class="menu-item">いいね！</a></li>
     </ul>
-    <% @posts.each do |post| %>
-      <div class="post-item-index">
-        <div class="post-item-index__text">
-          <%= link_to post.content, "/posts/#{post.id}", class: "post-item-index__text--content" %>
-          <div class="post-item-index__text--date">
-            <p><%= l post.created_at, format: :short %></p>
+    <ul class="contents">
+      <li class="content show">
+        <% @posts.each do |post| %>
+          <div class="post-item-index">
+            <div class="post-item-index__text">
+              <%= link_to post.content, "/posts/#{post.id}", class: "post-item-index__text--content" %>
+              <div class="post-item-index__text--date">
+                <p><%= l post.created_at, format: :short %></p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    <% end %>
-    <%= paginate(@posts) %>
+        <% end %>
+        <%= paginate(@posts) %>
+      </li>
+      <li class="content">
+        <% @likes.each do |like| %>
+          <% liked = Post.find_by(id: like.post_id) %>
+          <div class="post-item-index">
+            <div class="post-item-index__text">
+              <%= link_to liked.content, "/posts/#{liked.id}", class: "post-item-index__text--content" %>
+              <div class="post-item-index__text--date">
+                <p><%= l liked.created_at, format: :short %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </li>
+    </ul>
   </div>
 </div>
