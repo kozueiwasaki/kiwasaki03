@@ -27,6 +27,23 @@
     margin-bottom: 10px;
     text-align: right;
   }
+  &__like-btn{
+    text-decoration: none;
+    fa{
+      font-size: 16px;
+      margin-right: 3px;
+      
+    }
+    .like-btn-unlike{
+      color: #ff2581;
+    }
+    .like-btn{
+      color: #8899a6;
+    }
+  }
+  &__count{
+    margin-left: 5px;
+  }
   &__menus{
     text-align: right;
     a{
