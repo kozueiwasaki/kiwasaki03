@@ -1,0 +1,4 @@
+<% @likes.each do |like| %>
+  <% post = Post.find_by(id: like.post_id) %>
+  <%= post.content %>
+<% end %>

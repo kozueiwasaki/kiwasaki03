@@ -8,6 +8,10 @@
         <%= link_to "編集", edit_user_path(@user.id), class: "user-info__edit" %>
       <% end %>
     </div>
+    <ul class="user-tabs">
+      <li class="active"><%= link_to "投稿", user_path(@user.id) %></li>
+      <li><%= link_to "いいね!", likes_user_path(@user.id) %></li>
+    </ul>
     <% @posts.each do |post| %>
       <div class="post-item-index">
         <div class="post-item-index__text">
