@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     # 初期画像を設定
     @user.image_name = "user_default.png"
     if @user.save
-      session[:username] = @user.name
+      session[:user_id] = @user.id
       flash[:notice] = "登録が完了しました"
       redirect_to user_path(@user.id)
     else
@@ -62,8 +62,8 @@ class UsersController < ApplicationController
   end
 
   def login
-    @user = User.find_by(email: params[:email], password: params[:password])
-    if @user
+    @user = User.find_by(email: params[:email])
+    if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       flash[:notice] = "ログインしました"
       redirect_to root_path
