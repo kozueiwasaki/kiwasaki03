@@ -40,6 +40,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by(id: params[:id])
     @user.update(user_params)
+    
     # 画像データが送信されたときだけ実行
     if user_params[:image_name]
       # 画像のファイル名をDBに保存
@@ -49,6 +50,7 @@ class UsersController < ApplicationController
       # public/user_images配下にファイルを保存
       File.binwrite("public/user_images/#{@user.image_name}", image.read)
     end
+    
     if @user.save
       flash[:notice] = "ユーザー情報を編集しました"
       redirect_to user_path(@user.id)
