@@ -1,7 +1,7 @@
 <div class="main user-show">
   <div class="container">
     <div class="user-info">
-      <%= image_tag "/user_images/#{@user.image_name}", size: "200x200", class: "user-info__image" %>
+      <%= image_tag @user.image_name.url, size: "200x200", class: "user-info__image" %>
       <h2 class="user-info__name"><%= @user.name %></h2>
       <p class="user-info__email"><%= @user.email %></p>
       <% if @user.id == @current_user.id %>
@@ -16,7 +16,7 @@
       <li class="content show">
         <% @posts.each do |post| %>
           <div class="post-item-index">
-            <%= image_tag "/user_images/#{post.user.image_name}", size: "100x100" , class: "post-item-index__image"%>
+            <%= image_tag post.user.image_name.url, size: "100x100" , class: "post-item-index__image"%>
             <div class="post-item-index__text">
               <p class="post-item-index__text--username"><%= post.user.name %></p>
               <%= link_to post.content, "/posts/#{post.id}", class: "post-item-index__text--content" %>

@@ -4,7 +4,7 @@
     <% @users.each do |user| %>
       <div class="users-index__item">
         <% if user.image_name %>
-          <%= image_tag "/user_images/#{user.image_name}", size: '100x80', class: "users-index__item--image" %>
+          <%= image_tag user.image_name.url, size: '100x80', class: "users-index__item--image" %>
         <% end %>
         <div class="users-index__item--box">
           <%= link_to user.name, user_path(user.id), class: "users-index__item--box--name" %>

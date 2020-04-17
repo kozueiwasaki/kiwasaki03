@@ -67,3 +67,5 @@ gem 'font-awesome-sass', '~> 5.4.1'
 gem "jquery-rails"
 gem 'bcrypt'
 gem 'rails_12factor', group: :production
+gem 'carrierwave'
+gem 'mini_magick'
