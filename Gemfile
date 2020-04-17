@@ -69,3 +69,4 @@ gem 'bcrypt'
 gem 'rails_12factor', group: :production
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'fog'
