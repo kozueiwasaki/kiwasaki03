@@ -32,7 +32,7 @@
         <% @likes.each do |like| %>
           <% liked = Post.find_by(id: like.post_id) %>
           <div class="post-item-index">
-            <%= image_tag "/user_images/#{liked.user.image_name}", size: "100x100" , class: "post-item-index__image"%>
+            <%= image_tag liked.user.image_name.url, size: "100x100" , class: "post-item-index__image"%>
             <div class="post-item-index__text">
               <p class="post-item-index__text--username"><%= liked.user.name %></p>
               <%= link_to liked.content, "/posts/#{liked.id}", class: "post-item-index__text--content" %>
