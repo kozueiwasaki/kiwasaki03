@@ -12,6 +12,8 @@
         <%= f.text_field :email, class: "users-form__body--field", placeholder: "email" %>
         <p class="users-form__body--title">パスワード</p>
         <%= f.password_field :password, class: "users-form__body--field", placeholder: "password" %>
+        <p class="users-form__body--title">パスワード（再入力）</p>
+        <%= f.password_field :password_confirmation, class: "users-form__body--field", placeholder: "password" %>
         <%= f.submit "signup", class: "users-form__body--btn" %>
       </div>
     <% end %>

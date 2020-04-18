@@ -21,6 +21,10 @@ ja:
               taken: "がすでに使われています"
             password:
               blank: "を入力してください"
+              too_short: "は６文字以上で入力してください"
+              too_long: "は１２文字以内で入力してください"
+            password_confirmation:
+              confirmation: "が一致しません"
     attributes:
       post:
         content: "本文"
@@ -28,3 +32,4 @@ ja:
         name: "ニックネーム"
         email: "メールアドレス"
         password: "パスワード"
+        password_confirmation: "パスワード"
