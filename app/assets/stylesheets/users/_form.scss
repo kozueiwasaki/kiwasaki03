@@ -10,20 +10,28 @@
       margin-bottom: 20px;
       border-style: none;
     }
-    &--label{
-      display: block;
-      width: 25%;
-      cursor: pointer;
-      color: $dark-color;
-      font-size: 16px;
-      border: 1px solid $gray;
-      border-radius: 10px;
-      padding: 10px;
+    &--image{
+      display: flex;
       margin-bottom: 20px;
-      text-align: center;
-    }
-    &--file{
-      display: none;
+      &__label{
+        display: block;
+        width: 140px;
+        height: 40px;
+        cursor: pointer;
+        color: $dark-color;
+        font-size: 16px;
+        border: 1px solid $gray;
+        border-radius: 10px;
+        padding: 0 10px;
+        text-align: center;
+        line-height: 40px;
+      }
+      &__file{
+        display: none;
+      }
+      &__selected{
+        margin-left: 10px;
+      }
     }
     &--btn{
       width: 50%;
