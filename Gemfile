@@ -68,5 +68,5 @@ gem "jquery-rails"
 gem 'bcrypt'
 gem 'rails_12factor', group: :production
 gem 'carrierwave'
-gem 'mini_magick'
+gem 'mini _magick'
 gem 'fog'
