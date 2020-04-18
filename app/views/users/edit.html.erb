@@ -12,6 +12,8 @@
         <%= f.text_field :email, class: "users-form__body--field", placeholder: "email" %>
         <p class="users-form__body--title">パスワード</p>
         <%= f.password_field :password, class: "users-form__body--field", placeholder: "password" %>
+        <p class="users-form__body--title">パスワード（確認用）</p>
+        <%= f.password_field :password_confirmation, class: "users-form__body--field", placeholder: "password" %>
         <%= f.label :image_name, "ファイルを選択", class:"users-form__body--label" %>
         <%= f.file_field :image_name, class: "users-form__body--file" %>
         <%= f.submit "保存", class:"users-form__body--btn" %>
