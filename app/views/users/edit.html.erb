@@ -14,8 +14,11 @@
         <%= f.password_field :password, class: "users-form__body--field", placeholder: "password" %>
         <p class="users-form__body--title">パスワード（確認用）</p>
         <%= f.password_field :password_confirmation, class: "users-form__body--field", placeholder: "password" %>
-        <%= f.label :image_name, "ファイルを選択", class:"users-form__body--label" %>
-        <%= f.file_field :image_name, class: "users-form__body--file" %>
+        <div class="users-form__body--image">
+          <%= f.label :image_name, "ファイルを選択", class:"users-form__body--image__label" %>
+          <%= f.file_field :image_name, class: "users-form__body--image__file" %>
+          <%= image_tag @user.image_name.url, class:"users-form__body--image__selected", id: "img_prev", size: "150x150" %>
+        </div>
         <%= f.submit "保存", class:"users-form__body--btn" %>
       </div>
     <% end %>
