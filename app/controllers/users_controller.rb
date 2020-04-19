@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update]
   # ログインしていないユーザのアクセスを防ぐ
   before_action :authenticate_user, only: [:index, :show, :edit, :update]
   # すでにログインしているユーザのアクセスを防ぐ
@@ -28,17 +29,14 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
     @posts = @user.posts.page(params[:page]).per(5).order("created_at DESC")
     @likes = Like.where(user_id: @user.id).page(params[:page]).per(5).order("created_at DESC")
   end
 
   def edit
-    @user = User.find_by(id: params[:id])
   end
 
   def update
-    @user = User.find_by(id: params[:id])
     @user.update(user_params)
 
     # # 画像データが送信されたときだけ実行
@@ -94,6 +92,10 @@ class UsersController < ApplicationController
       flash[:notice] = "権限がありません"
       redirect_to root_path
     end
+  end
+
+  def set_user
+    @user = User.find_by(id: params[:id])
   end
 
 end
